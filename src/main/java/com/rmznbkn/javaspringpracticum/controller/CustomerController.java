@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,13 +32,13 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createCustomer(@RequestBody Customer customer){
+    public ResponseEntity<String> createCustomer(@Valid @RequestBody Customer customer){
         customerRepository.save(customer);
         return ResponseEntity.ok("Customer " + customer.getName());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateCustomerById(@RequestBody Customer customer,
+    public ResponseEntity<String> updateCustomerById(@Valid @RequestBody Customer customer,
                                                      @PathVariable Long id){
         if(!customer.getId().equals(id)){
             throw new IllegalArgumentException(("Id did not match the data"));

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Builder
@@ -22,6 +23,7 @@ public class Comment {
     @Id
     @GeneratedValue
     private Long id;
+    @Size(max = 500)
     private String comment;
     private Date commentDate;
     @OneToOne
