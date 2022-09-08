@@ -1,4 +1,4 @@
-package com.rmznbkn.javaspringpracticum.repositories.entities;
+package com.rmznbkn.javaspringpracticum.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -6,24 +6,25 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
+
+@Entity(name = "products")
 @Getter
 @Setter
-@Entity(name = "products")
-public class Product {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Product implements Serializable {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String price;
     private Date lastUsableDate;

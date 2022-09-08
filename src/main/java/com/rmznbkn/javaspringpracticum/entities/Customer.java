@@ -1,4 +1,4 @@
-package com.rmznbkn.javaspringpracticum.repositories.entities;
+package com.rmznbkn.javaspringpracticum.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -6,22 +6,22 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@Builder
+
+@Entity(name="customers")
 @Getter
 @Setter
-@Entity(name = "customers")
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+public class Customer implements Serializable {
 
-public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Size(max = 50)
@@ -32,4 +32,5 @@ public class Customer {
     private String email;
     @Pattern(regexp = "[0-9\\s]{15}")
     private String phone;
+
 }

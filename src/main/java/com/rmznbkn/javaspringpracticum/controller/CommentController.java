@@ -1,10 +1,10 @@
 package com.rmznbkn.javaspringpracticum.controller;
 
 import com.rmznbkn.javaspringpracticum.dto.CommentRequestDTO;
-import com.rmznbkn.javaspringpracticum.repositories.dao.CommentRepository;
-import com.rmznbkn.javaspringpracticum.repositories.entities.Comment;
-import com.rmznbkn.javaspringpracticum.repositories.entities.Customer;
-import com.rmznbkn.javaspringpracticum.repositories.entities.Product;
+import com.rmznbkn.javaspringpracticum.repository.CommentRepository;
+import com.rmznbkn.javaspringpracticum.entities.Comment;
+import com.rmznbkn.javaspringpracticum.entities.Customer;
+import com.rmznbkn.javaspringpracticum.entities.Product;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

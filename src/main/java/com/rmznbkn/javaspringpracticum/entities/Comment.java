@@ -1,31 +1,34 @@
-package com.rmznbkn.javaspringpracticum.repositories.entities;
+package com.rmznbkn.javaspringpracticum.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-@Builder
+
+@Entity(name="comments")
 @Getter
 @Setter
-@Entity(name = "comments")
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Comment {
+@AllArgsConstructor
+public class Comment implements Serializable {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(max = 500)
+
+    @Length(max = 500)
     private String comment;
+
     private Date commentDate;
+
     @OneToOne
     private Product product;
     @OneToOne

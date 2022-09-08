@@ -1,6 +1,6 @@
-package com.rmznbkn.javaspringpracticum.repositories.dao;
+package com.rmznbkn.javaspringpracticum.repository;
 
-import com.rmznbkn.javaspringpracticum.repositories.entities.Customer;
+import com.rmznbkn.javaspringpracticum.entities.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
